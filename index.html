@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand-Cricket</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="page border">
+        <div class="headStart border">
+            <h1>HandCricket!</h1>
+            <div class="controlsDiv">
+                <button class="Start">START</button>
+                <button class="Restart">RESTART</button>
+            </div>
+            <div class="tossDiv hidden">
+                <h2 class="tossCaption">Choose heads for even and tails for odd</h2>
+                <button class="headsButton">HEADS</button>
+                <button class="tailsButton">TAILS</button>
+            </div>
+        </div>
+        <div class="moveSec border">
+            <div class="moveOptions">
+                <div class="moveOne move" style="background-image: url(./images/one.png);"></div>
+                <div class="moveTwo move" style="background-image: url(./images/two.png);"></div>
+                <div class="moveThree move" style="background-image: url(./images/three.png);"></div>
+                <div class="moveFour move" style="background-image: url(./images/four.png);"></div>
+                <div class="moveFive move" style="background-image: url(./images/five.png);"></div>
+                <div class="moveSix move" style="background-image: url(./images/six.png);"></div>
+            </div>
+            <button class="moveButton">THROW</button>
+            <div class="moveHistory">
+                <div class="moveHist-Tile">
+                    <div class="botMove">
+                        <div class="bot-icon"></div>
+                        <p class="bot-moveNumber">0</p>
+                    </div>
+                    <div class="playerMove">
+                        <div class="player-icon"></div>
+                        <p class="player-moveNumber">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gameSec border">
+            <div class="gameDisplay">
+                <div class="BotThrowDisp"></div>
+
+                <div class="gameNamesDisp">
+                    <div>
+                        <div class="Icon bot"></div>
+                        <h3 class="botTag">BOT</h3>
+                    </div>
+                    <h1 class="vs">VS</h1>
+                    <div>
+                        <div class="Icon player"></div>
+                        <h3 class="playerTag">YOU</h3>
+                    </div>
+                </div>
+
+                <div class="gameRunDisp">
+                    <h1 class="liveRuns">00</h1>
+                </div>
+
+                <div class="PlayerThrowDisp"></div>
+            </div>
+
+            <div class="gameStats">
+                <h2>TARGET - NULL</h2>
+                <h2>RUNS LEFT - NULL</h2>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
