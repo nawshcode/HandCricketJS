@@ -38,51 +38,25 @@ const startBtn = document.querySelector(".Start")
 const pauseBtn = document.querySelector(".Pause")
 const continueBtn = document.querySelector(".Continue")
 const exitBtn = document.querySelector(".Exit")
+
 const headsBtn = document.querySelector(".headsButton")
 const tailsBtn = document.querySelector(".tailsButton")
 
+const mtile = document.querySelector(".goneJS")
+const mHistory = document.querySelector(".moveHistory")
 
-for (let i = 0; i < moves.length; i++) {
-    moves[i].icon.onclick = () => {
-        let botMove = createBotMove()
-        throwButton.onclick = () => {
-            mtile.remove()
-            const mBox = document.createElement('div')
-            mBox.className = "moveHist-Tile"
-            mBox.innerHTML = `
-            <div class="botMove">
-                <div class="bot-icon"></div>
-                <p class="bot-moveNumber">${botMove}</p>
-            </div>
-            <div class="playerMove">
-                <div class="player-icon"></div>
-                <p class="player-moveNumber">${moves[i].value}</p>
-            </div>
-        `;
-            mHistory.appendChild(mBox);
+const pThrowDisp = document.querySelector(".PlayerThrowDisp")
+const bThrowDisp = document.querySelector(".BotThrowDisp")
 
-            mHistory.scrollTop = mHistory.scrollHeight;
+const throwButton = document.querySelector(".moveButton")
 
+const tossDiv = document.querySelector(".tossDiv")
+const tossCaption = document.querySelector(".tossCaption")
 
-            pThrowDisp.style.cssText = `
-            background-image: url(${moves[i].img})
-        `;
+const moveSection = document.querySelector(".moveSec")
+const gameSection = document.querySelector(".gameSec")
 
-            bThrowDisp.style.cssText = `
-            background-image: url(${moves[botMove - 1].img})
-        `;
-        }
-
-
-    }
-}
-
-
-function createBotMove() {
-    let botMove = Math.ceil(Math.random() * 6)
-    return botMove
-}
-
+const headStart = document.querySelector(".headStart")
 
 
 
@@ -98,8 +72,11 @@ pauseBtn.onclick = () => {
     hideDisp(pauseBtn)
     showdisp(continueBtn)
     cursorBan(tossDiv)
-    cursorBan(headsBtn)    
-    cursorBan(tailsBtn)        
+    cursorBan(headsBtn)
+    cursorBan(tailsBtn)
+    cursorBan(gameSection)
+    cursorBan(moveSection)
+    cursorBan(throwButton)
     alert("GAME PAUSED! -_-")
 }
 
@@ -110,29 +87,168 @@ continueBtn.onclick = () => {
     cursorOn(tossDiv)
     cursorOn(headsBtn)
     cursorOn(tailsBtn)
+    cursorOn(gameSection)
+    cursorOn(moveSection)
+    cursorOn(throwButton)
 }
 
-function showdisp(element){
+function showdisp(element) {
     element.classList.remove("hidden");
 }
-function hideDisp(element){
+function hideDisp(element) {
     element.classList.add("hidden");
 }
 
-function cursorBan(element){
+function cursorBan(element) {
     element.style.cursor = "not-allowed"
 }
-function cursorOn(element){
+function cursorOn(element) {
     element.style.cursor = "pointer"
+}
+function createBotMove() {
+    let botMove = Math.ceil(Math.random() * 6)
+    return botMove
+}
+
+const HEADS = {
+    element: document.querySelector(".headsButton"),
+    value: "HEADS"
+}
+const TAILS = {
+    element: document.querySelector(".tailsButton"),
+    value: "TAILS"
+}
+
+let TossChoice = "";
+
+
+HEADS.element.onclick = () => {
+    TossChoice += HEADS.value
+    hideDisp(tailsBtn)
+    hideDisp(headsBtn)
+    console.log(TossChoice)
+    tossCaption.innerText = `You Chose HEADS! Throw Your Move!`
+    showdisp(moveSection)
+    showdisp(gameSection)
+    headStart.style.cssText = `
+        grid-area: 1 / 1 / 2 / 2;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        justify-content: space-around;
+        box-shadow: none;
+    `
+    tossCaption.style.cssText = `
+        margin: auto;
+        color: #a5d8ff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-bottom: 5px;
+    `
+    gameSection.style.cssText = `
+        box-shadow: 0px 0px 10px 2px rgb(81, 75, 75);
+    `
+}
+
+TAILS.element.onclick = () => {
+    TossChoice += TAILS.value
+    hideDisp(tailsBtn)
+    hideDisp(headsBtn)
+    console.log(TossChoice)
+    tossCaption.innerText = `You Chose TAILS! Throw Your Move!`
+    showdisp(moveSection)
+    showdisp(gameSection)
+    headStart.style.cssText = `
+        grid-area: 1 / 1 / 2 / 2;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        justify-content: space-around;
+        box-shadow: none;
+    `
+    tossCaption.style.cssText = `
+        margin: auto;
+        color: #a5d8ff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-bottom: 5px;
+    `
+    gameSection.style.cssText = `
+        box-shadow: 0px 0px 10px 2px rgb(81, 75, 75);
+    `
+
 }
 
 
-const mtile = document.querySelector(".goneJS")
-const mHistory = document.querySelector(".moveHistory")
 
-const pThrowDisp = document.querySelector(".PlayerThrowDisp")
-const bThrowDisp = document.querySelector(".BotThrowDisp")
+function tossFunc() {
+    let tossResult = ""
+    let sum = 0;
+    for (let i = 0; i < moves.length; i++) {
+        moves[i].icon.onclick = () => {
+            sum += moves[i].value
+            throwButton.onclick = () => {
+                let botTossMove = createBotMove()
+                sum += botTossMove
+                if (sum % 2 == 0) {
+                    tossResult += "TAILS"
+                }
+                else {
+                    tossResult += "HEADS"
+                }
+                console.log(tossResult)
 
-const throwButton = document.querySelector(".moveButton")
+            }
+        }
+    }
 
-const tossDiv = document.querySelector(".tossDiv")
+}
+
+
+
+
+
+for (let i = 0; i < moves.length; i++) {
+    moves[i].icon.onclick = () => {
+
+        let botMove = createBotMove()
+
+        throwButton.onclick = () => {
+
+            addTile(botMove, i)  // adding tiles as the moves are made
+
+            //updating display for player and bot throws on the big box
+            updateDisp(pThrowDisp, moves[i].img)
+            updateDisp(bThrowDisp, moves[botMove - 1].img)
+
+        }
+
+
+    }
+}
+
+
+
+
+function addTile(a,b){
+    //css dom changes for moveSection
+    mtile.remove()
+    const mBox = document.createElement('div')
+    mBox.className = "moveHist-Tile"
+    mBox.innerHTML = `
+    <div class="botMove">
+        <div class="bot-icon"></div>
+        <p class="bot-moveNumber">${a}</p>
+    </div>
+    <div class="playerMove">
+        <div class="player-icon"></div>
+        <p class="player-moveNumber">${moves[b].value}</p>
+    </div>`;
+    mHistory.appendChild(mBox);
+    mHistory.scrollTop = mHistory.scrollHeight;
+}
+
+function updateDisp(element, image){
+    element.style.cssText = `
+            background-image: url(${image})
+        `
+}
+
