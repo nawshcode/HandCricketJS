@@ -147,6 +147,8 @@ HEADS.element.onclick = () => {
     gameSection.style.cssText = `
         box-shadow: 0px 0px 10px 2px rgb(81, 75, 75);
     `
+    startToss()
+
 }
 
 TAILS.element.onclick = () => {
@@ -174,35 +176,21 @@ TAILS.element.onclick = () => {
     gameSection.style.cssText = `
         box-shadow: 0px 0px 10px 2px rgb(81, 75, 75);
     `
-
 }
 
 
-
-function tossFunc() {
-    let tossResult = ""
-    let sum = 0;
-    for (let i = 0; i < moves.length; i++) {
+/*
+function notePmove(){
+    for (let i = 0; i < moves.length; i++){
         moves[i].icon.onclick = () => {
-            sum += moves[i].value
             throwButton.onclick = () => {
-                let botTossMove = createBotMove()
-                sum += botTossMove
-                if (sum % 2 == 0) {
-                    tossResult += "TAILS"
-                }
-                else {
-                    tossResult += "HEADS"
-                }
-                console.log(tossResult)
-
+                console.log(moves[i].value) 
             }
         }
     }
-
 }
 
-
+*/
 
 
 
