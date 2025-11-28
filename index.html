@@ -9,20 +9,23 @@
 </head>
 
 <body>
-    <div class="page border">
-        <div class="headStart border">
+    <div class="page">
+        <div class="headStart">
             <h1>HandCricket!</h1>
             <div class="controlsDiv">
                 <button class="Start">START</button>
-                <button class="Restart">RESTART</button>
+                <button class="Pause hidden">PAUSE</button>
+                <button class="Continue hidden">CONTINUE</button>
+                <button class="Exit hidden">EXIT</button>
+
             </div>
-            <div class="tossDiv">
+            <div class="tossDiv hidden">
                 <h2 class="tossCaption">Choose heads for even and tails for odd</h2>
                 <button class="headsButton">HEADS</button>
                 <button class="tailsButton">TAILS</button>
             </div>
         </div>
-        <div class="moveSec border">
+        <div class="moveSec hidden">
             <div class="moveOptions">
                 <div class="moveOne move" style="background-image: url(./images/one.png);"></div>
                 <div class="moveTwo move" style="background-image: url(./images/two.png);"></div>
@@ -32,7 +35,7 @@
                 <div class="moveSix move" style="background-image: url(./images/six.png);"></div>
             </div>
             <button class="moveButton">THROW</button>
-            <div class="moveHistory">
+            <div class="moveHistory hidden">
                 <div class="moveHist-Tile goneJS">
                     <div class="botMove">
                         <div class="bot-icon"></div>
@@ -45,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class="gameSec border">
+        <div class="gameSec hidden">
             <div class="gameDisplay">
                 <div class="BotThrowDisp"></div>
 
