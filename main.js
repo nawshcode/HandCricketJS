@@ -291,9 +291,11 @@ function updateruns(user) {
                             color: #e03131;
                         `
                         showdisp(tossCaption)
+                        hideDisp(moveSection)
                         tossCaption.innerText = "YOURE OUT! READY FOR THE 2ND INNINGS?"
                         showdisp(startBtn2)
                         startBtn2.onclick = () => {
+                            showdisp(moveSection)
                             tossCaption.innerText = "LET THE THROWING BEGIN!"
                             liveRuns.innerText = "0"
                             hideDisp(startBtn2)
@@ -326,9 +328,11 @@ function updateruns(user) {
                             color: #e03131;
                         `
                         showdisp(tossCaption)
+                        hideDisp(moveSection)
                         tossCaption.innerText = "BOTS OUT! READY FOR THE 2ND INNINGS?"
                         showdisp(startBtn2)
                         startBtn2.onclick = () => {
+                            showdisp(moveSection)
                             tossCaption.innerText = "LET THE THROWING BEGIN!"
                             liveRuns.innerText = "0"
                             hideDisp(startBtn2)
