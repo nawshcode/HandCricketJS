@@ -29,6 +29,8 @@ body {
 
 
 .headStart {
+    position: absolute;
+    top: 80%;
     grid-row: 1 / 2 ;
     grid-column: 1 / -1;
     width: 60%;
@@ -38,7 +40,7 @@ body {
     justify-self: center;
     flex-direction: column;
     padding: 20px;
-    justify-content: space-around;
+    justify-content: center;
     box-shadow: 0px 0px 10px 2px rgb(81, 75, 75);
 }
 
@@ -73,13 +75,17 @@ button {
 }
 
 .Start {
+    margin-top: 30px;
     background-color: #b2f2bb;
     scale: 1.2;
     &:hover{
         scale: 1.15;
     }; 
 }
-
+.Start2{
+    background-color: #b2f2bb;
+    margin: 0 20px;
+}
 .Continue{
     background-color: #b2f2bb;
 }
@@ -95,7 +101,7 @@ button {
     height: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
@@ -103,19 +109,29 @@ button {
     color: #a5d8ff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-bottom: 5px;
+    font-size: 20px;
 }
 
 .headsButton {
     background-color: #d0bfff;
-    margin-right: 20px;
+    margin: 0 20px;
 }
 
 .tailsButton {
     background-color: #fcc2d7;
 }
+.batButton{
+    background-color: #d0bfff;
+    margin: 0 20px;
+}
+.bowlButton{
+    background-color: #fcc2d7;
+}
 
-
-
+.buttonPocket{
+    display : flex;
+    flex-direction: row;
+}
 
 
 .moveSec {
@@ -228,6 +244,7 @@ button {
 
 
 
+
 .gameSec {
     grid-area: 2 / 1 / 3 / 2;
     display: flex;
@@ -251,7 +268,7 @@ button {
     border-radius: 10px;
     opacity: 0.7;
     scale: 0.8;
-    border-radius: 30%;
+    border-radius: 5%;
 }
 
 .PlayerThrowDisp {
@@ -263,7 +280,7 @@ button {
     border-radius: 10px;
     opacity: 0.7;
     scale: 0.8;
-    border-radius: 30%;
+    border-radius: 5%;
 }
 
 .gameRunDisp {
@@ -324,7 +341,7 @@ button {
     margin-top: 40px;
 }
 .botTag{
-    color:#e03131;
+    color:#cbf134b8;
     font-weight: 800;
     margin-bottom: 3px;
 }
